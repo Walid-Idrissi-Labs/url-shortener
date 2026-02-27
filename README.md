@@ -1,4 +1,4 @@
-# URL Shortener — AWS + Terraform
+# URL Shortener : AWS + Terraform
 
 A serverless URL shortener built with AWS and Terraform. You paste a long URL, you get a short one back. When someone visits the short URL, they get redirected to the original. That's it.
 
