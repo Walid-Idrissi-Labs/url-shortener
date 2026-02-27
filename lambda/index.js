@@ -37,7 +37,7 @@ async function handleShorten(event){
         }
     ) )
 
-    return respond(200 , {code})
+    return respond(200 , {code , expiresAt})
 }
 
 
