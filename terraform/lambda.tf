@@ -48,8 +48,13 @@ resource "aws_iam_role_policy_attachment" "lambda_logs" {
 #zip the lambda code
 data "archive_file" "lambda"{
     type = "zip"
-    source_dir = "../lambda"
-    output_path = "../lambda.zip"
+
+#* For Local Backend
+    # source_dir = "../lambda"
+    # output_path = "../lambda.zip"
+#* For Remote Backend : Changing the TF Working Directory on the TF Cloud
+    source_dir  = "${path.module}/../lambda"
+    output_path = "${path.module}/lambda.zip"
 }
 
 resource "aws_lambda_function" "main"{

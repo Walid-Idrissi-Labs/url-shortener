@@ -30,13 +30,14 @@ resource "aws_apigatewayv2_stage" "default" {
 #attach (integrate) route to lambda
 resource "aws_apigatewayv2_integration" "shorten" {
     api_id = aws_apigatewayv2_api.main.id
-    integration_type = "AWS_PROXY" #forwads the entire request to lambda, without any transformation
+    integration_type = "AWS_PROXY" #forwads the entire request to Lambda, without any transformation
     integration_uri = aws_lambda_function.main.invoke_arn
     payload_format_version = "2.0"
 }
 
 
 #route
+    #routes are what triggers and integration
 resource "aws_apigatewayv2_route" "shorten" {
     api_id = aws_apigatewayv2_api.main.id
     route_key = "POST /shorten" 

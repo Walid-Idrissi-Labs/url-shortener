@@ -1,8 +1,9 @@
 #s3 bucket to host the reactapp, only cloudfront will access it 
     #and it will only request it when theres a cache miss, otherwise cloudfront will serve the cached version
 resource "aws_s3_bucket" "frontend" {
-    bucket = "url-shortener-frontend-${random_id.bucket_suffix.hex}"
-}
+      bucket = "url-shortener-frontend-${random_id.bucket_suffix.hex}"
+      force_destroy = true 
+} 
 
 #bucket public access settings 
     #(private, only cloudfront can access it)

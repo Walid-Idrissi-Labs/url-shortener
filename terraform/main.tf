@@ -1,15 +1,28 @@
 terraform{
-    required_providers {
-      aws={
-        source="hashicorp/aws"
-        version="~> 5.0"
-      }
-    }
+    # * move to remote backend later
+
+      cloud { 
+    
+    organization = "Walids-Labs" 
+
+    workspaces { 
+      name = "Walids-Workspace" 
+    } 
+  } 
+
+    # required_providers {
+    #   aws={
+    #     source="hashicorp/aws"
+    #     version="~> 5.0"
+    #   }
+    # }
 }
 
 provider "aws" {
     region = "us-east-1"
-    profile = "dev"  
+    #! Terraform Cloud wotnt know what this is
+        #it only recognizes the env varables set on tf cloud
+    # profile = "dev"  
 }
 
 

@@ -8,7 +8,8 @@ const dbclient = new DynamoDBClient({})
 const TABLE = process.env.DYNAMODB_TABLE
 
 
-export async function handleShorten(event){
+// export async function handleShorten(event){
+async function handleShorten(event){
     let body
     try 
     {
